@@ -1,0 +1,229 @@
+@startuml
+class kullanici_paneller.isletme_ilan_verme {
+~ ınt kullanici_no
+~ JScrollPane sc
+~ JTextField isletme_no
+~ JTextField arsaNo
+~ JTextField ucret
+~ JTextField emlakci_alan_no
+~ JComboBox<String> islem_tipi
+~ JTextField kira_gun_sayisi
+~ DatabaseConnect db
+~ Connection conn
++ <<Create>> isletme_ilan_verme(ınt)
++ void tabloOlustur()
++ void tabloOlusturArsa()
+}
+class main.signup {
+~ DatabaseConnect dtbc
+~ Connection conn
+~ Icon icon
+~ JButton ok
++ <<Create>> signup()
+}
+class main.kullanici_panel {
+~ JTable market
+~ ArrayList<JButton> arsaButonlar
+~ ArrayList<JLabel> jLabelArray
+~ ınt kullaniciNo
+~ DefaultTableModel table
+~ JTable emlak
+~ JTable magaza
+~ DatabaseConnect dtbc
+~ Connection conn
+~ JPopupMenu pop
+~ Icon buyicon
+~ Icon buyicon2
+~ Icon kiraicon
+~ Icon accounticon
+~ Icon isletmeicon
+~ Icon refreshGif
+~ Icon isAramaicon
+~ Icon magazaicon
+~ Icon marketicon
+~ Icon emlakicon
+~ Icon arsaicon
+~ Icon tlicon
+~ Icon tarihicon
+~ Icon esyaicon
+~ Icon yiyecekicon
+~ Icon profilicon
+~ Icon kullaniciGidericon
+~ Icon malVarligiicon
+~ Icon isGecmisiicon
+~ Icon isilanivermeicon
+~ Icon isletmeilanicon
+~ JButton satinAl
+~ JButton refresh
+~ JButton satinAlma
+~ JButton kirala
+~ JButton isletmeKurma
+~ JButton isArama
+~ JTextField jisletmeNo
+~ JTextField jMiktar
++ <<Create>> kullanici_panel(ınt)
+# void paintComponent(Graphics)
++ void arsaOlusturma()
++ void labelGuncelle()
+}
+class main.admin_panel {
+~ JTextField gunArtisMiktari
+~ <<Create>> admin_panel()
+}
+class kullanici_paneller.kullanici_varliklari {
+~ ınt kullanici_no
+~ JScrollPane sc
++ <<Create>> kullanici_varliklari(ınt)
++ void tabloOlustur()
++ void tabloOlustur2()
+}
+class kullanici_paneller.ise_girme {
+~ ınt kullanici_no
+~ JScrollPane sc
+~ JTextField jisletmeNo
+~ Icon iseGir_icon
+~ JButton iseGir
+~ Icon isAyril
+~ JButton istenAyril
++ <<Create>> ise_girme(ınt)
++ void tabloOlustur()
+}
+class kullanici_paneller.profilPanel {
++ <<Create>> profilPanel(ınt)
+}
+class kullanici_paneller.kiralama {
+~ JScrollPane sc2
+~ DatabaseConnect dtbc
+~ Connection conn
+~ Icon okicon
+~ JButton islem
+~ JTextField jkiraSure
+~ JTextField jemlakNo
+~ JTextField jisletmeNo
++ <<Create>> kiralama(ınt)
++ void tabloOlusturmaKira(ınt)
+}
+class kullanici_paneller.magaza {
+~ JScrollPane sc
+~ DatabaseConnect dtbc
+~ Connection conn
+~ JTextField jisletmeNo
+~ JTextField jMiktar
+~ Icon buyicon2
+~ JButton satinAlma
++ <<Create>> magaza(ınt)
+}
+class kullanici_paneller.market {
+~ JScrollPane sc
+~ DatabaseConnect dtbc
+~ Connection conn
+~ JTextField jisletmeNo
+~ JTextField jMiktar
+~ Icon buyicon2
+~ Icon tlicon
+~ JButton satinAlma
++ <<Create>> market(ınt)
+}
+class main.Login {
++ {static} ınt yükseklik
++ {static} ınt genislik
+- JFrame loginFrame
+- JPanel panel
+# JButton loginButton
+# JTextField jTextUsername
+# JPasswordField jPassword
+# JLabel lUsername
+~ DatabaseConnect dtbc
+~ Connection conn
+~ ImageIcon kayıtOl
+~ ınt kullaniciNo
+~ JFrame oyunEkran
+~ kullanici_panel kullanici_panel
++ <<Create>> Login()
++ ınt loginCheck(String,String)
+}
+class kullanici_paneller.isletmeKurma {
+~ JScrollPane sc
+~ DatabaseConnect dtbc
+~ Connection conn
+~ Icon okicon
+~ JButton islem
+~ JTextField jurunFiyat
+~ JTextField jisletmeTuru
+~ JTextField jArsaNO
++ <<Create>> isletmeKurma(ınt)
++ void tabloOlusturma(ınt)
++ void isletmeEkle(ınt,ınt,String)
+}
+class kullanici_paneller.kullanici_gider {
+~ ınt kullanici_no
+~ JScrollPane sc
++ <<Create>> kullanici_gider(ınt)
++ void tabloOlustur()
+}
+class kullanici_paneller.is_ilani_verme {
+~ ınt kullanici_no
+~ JScrollPane sc
+~ JScrollPane sc2
+~ JTextField isletme_no
+~ JTextField ucret
+~ JTextField saat
+~ JLabel sonuclabel
+~ JTextField isletmeNo2
++ <<Create>> is_ilani_verme(ınt)
++ void tabloOlustur()
++ void tabloOlustur2()
+}
+class kullanici_paneller.emlakSatis {
+~ JScrollPane sc
+~ JScrollPane sc2
+~ DatabaseConnect dtbc
+~ Connection conn
+~ JTextField jisletmeNo
+~ JTextField jSatanEmlak
+~ JTextField jMiktar
+~ Icon buyicon2
+~ JButton satinAlma
+~ JButton satinAlma2
+~ JButton arsaSatis
+~ JButton isletmeSatis
++ <<Create>> emlakSatis(ınt)
++ void tabloOlusturma(ınt)
++ void tabloOlusturmaisletme(ınt)
+}
+class main.Main {
++ {static} void main(String[])
+}
+class main.DatabaseConnect {
+- {static} String databaseUrl
+- {static} String userN
+- {static} String password
+- Connection connection
++ Connection getConnection()
++ void closeConnection()
+}
+class kullanici_paneller.kullanici_emlak_is_gecmis {
+~ ınt kullanici_no
+~ JScrollPane sc
++ <<Create>> kullanici_emlak_is_gecmis(ınt)
++ void tabloOlustur()
++ void tabloOlustur2()
+}
+
+
+kullanici_paneller.JPanel <|-- kullanici_paneller.isletme_ilan_verme
+main.JPanel <|-- main.signup
+main.JPanel <|-- main.kullanici_panel
+main.JPanel <|-- main.admin_panel
+kullanici_paneller.JPanel <|-- kullanici_paneller.kullanici_varliklari
+kullanici_paneller.JPanel <|-- kullanici_paneller.ise_girme
+kullanici_paneller.JPanel <|-- kullanici_paneller.profilPanel
+kullanici_paneller.JPanel <|-- kullanici_paneller.kiralama
+kullanici_paneller.JPanel <|-- kullanici_paneller.magaza
+kullanici_paneller.JPanel <|-- kullanici_paneller.market
+kullanici_paneller.JPanel <|-- kullanici_paneller.isletmeKurma
+kullanici_paneller.JPanel <|-- kullanici_paneller.kullanici_gider
+kullanici_paneller.JPanel <|-- kullanici_paneller.is_ilani_verme
+kullanici_paneller.JPanel <|-- kullanici_paneller.emlakSatis
+kullanici_paneller.JPanel <|-- kullanici_paneller.kullanici_emlak_is_gecmis
+@enduml

@@ -1,0 +1,92 @@
+@startuml
+class main.Login {
++ {static} ınt yükseklik
++ {static} ınt genislik
+- JFrame loginFrame
+- JPanel panel
+# JButton loginButton
+# JTextField jTextUsername
+# JPasswordField jPassword
+# JLabel lUsername
+~ DatabaseConnect dtbc
+~ Connection conn
+~ ImageIcon kayıtOl
+~ ınt kullaniciNo
+~ JFrame oyunEkran
+~ kullanici_panel kullanici_panel
++ <<Create>> Login()
++ ınt loginCheck(String,String)
+}
+class main.kullanici_panel {
+~ JTable market
+~ ArrayList<JButton> arsaButonlar
+~ ArrayList<JLabel> jLabelArray
+~ ınt kullaniciNo
+~ DefaultTableModel table
+~ JTable emlak
+~ JTable magaza
+~ DatabaseConnect dtbc
+~ Connection conn
+~ JPopupMenu pop
+~ Icon buyicon
+~ Icon buyicon2
+~ Icon kiraicon
+~ Icon accounticon
+~ Icon isletmeicon
+~ Icon refreshGif
+~ Icon isAramaicon
+~ Icon magazaicon
+~ Icon marketicon
+~ Icon emlakicon
+~ Icon arsaicon
+~ Icon tlicon
+~ Icon tarihicon
+~ Icon esyaicon
+~ Icon yiyecekicon
+~ Icon profilicon
+~ Icon kullaniciGidericon
+~ Icon malVarligiicon
+~ Icon isGecmisiicon
+~ Icon isilanivermeicon
+~ Icon isletmeilanicon
+~ JButton satinAl
+~ JButton refresh
+~ JButton satinAlma
+~ JButton kirala
+~ JButton isletmeKurma
+~ JButton isArama
+~ JTextField jisletmeNo
+~ JTextField jMiktar
++ <<Create>> kullanici_panel(ınt)
+# void paintComponent(Graphics)
++ void arsaOlusturma()
++ void labelGuncelle()
+}
+class main.signup {
+~ DatabaseConnect dtbc
+~ Connection conn
+~ Icon icon
+~ JButton ok
++ <<Create>> signup()
+}
+class main.admin_panel {
+~ JTextField gunArtisMiktari
+~ <<Create>> admin_panel()
+}
+class main.Main {
++ {static} void main(String[])
+}
+class main.DatabaseConnect {
+- {static} String databaseUrl
+- {static} String userN
+- {static} String password
+- Connection connection
++ Connection getConnection()
++ void closeConnection()
+}
+
+
+main.JPanel <|-- main.kullanici_panel
+main.JPanel <|-- main.signup
+main.JPanel <|-- main.admin_panel
+@enduml
